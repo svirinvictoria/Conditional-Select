@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MakeSelection from "../MakeSelection/MakeSelection";
 import "./SelectItem.css";
 
 const SelectItem = () => {
@@ -58,20 +59,8 @@ const SelectItem = () => {
   return (
     <div className="item">
       My Shop
-      <div>
-        <select className="border-control" onChange={onChangeTypeHandler}>
-          {shopTypes.map((type) => {
-            return <option key={type}>{type}</option>;
-          })}
-        </select>
-      </div>
-      <div>
-        <select className="border-control" onChange={onChangeItemHandler}>
-          {shopItems.map((item) => {
-            return <option key={item}>{item}</option>;
-          })}
-        </select>
-      </div>
+      <MakeSelection items={shopTypes} onChangeHandler={onChangeTypeHandler}  />
+      <MakeSelection items={shopItems} onChangeHandler ={onChangeItemHandler} />
       <div className="border-control">{`You have chosen ${selectedShopType}, ${selectedShopItem}`}</div>
     </div>
   );
