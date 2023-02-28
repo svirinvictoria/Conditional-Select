@@ -1,15 +1,13 @@
-import SelectItem from './components/SelectItem';
-import './App.css';
+import SelectItem from "./components/SelectItem";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Conditional select 2
-        </p>
+        <p>Conditional select 2</p>
       </header>
-    <SelectItem />
+      <SelectItem />
     </div>
   );
 }
