@@ -1,4 +1,4 @@
-import SelectItem from "./components/SelectItem";
+import SelectItem from "./components/SelectItem/SelectItem";
 import "./App.css";
 
 function App() {
