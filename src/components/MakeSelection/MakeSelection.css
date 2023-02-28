@@ -1,0 +1,6 @@
+.border-control{
+    border: 1.5px solid black; 
+    padding: 1px auto;
+    width: 50%;
+    margin: 0.75rem auto;
+}

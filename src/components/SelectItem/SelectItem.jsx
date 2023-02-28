@@ -56,11 +56,17 @@ const SelectItem = () => {
     setSelectedShopItem(event.target.value);
   };
 
+
+
   return (
     <div className="item">
       My Shop
-      <MakeSelection items={shopTypes} onChangeHandler={onChangeTypeHandler}  />
-      <MakeSelection items={shopItems} onChangeHandler ={onChangeItemHandler} />
+      <div>
+              <MakeSelection items={shopTypes} onChangeHandler={onChangeTypeHandler}  />
+      </div>
+      <div>
+              <MakeSelection items={shopItems} onChangeHandler ={onChangeItemHandler} />
+      </div>
       <div className="border-control">{`You have chosen ${selectedShopType}, ${selectedShopItem}`}</div>
     </div>
   );
