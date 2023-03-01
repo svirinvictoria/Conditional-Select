@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MakeSelection from "../MakeSelection/MakeSelection";
+import { insertShopTypes, insertListOfItems } from "../../proxy/proxy.js";
 import "./SelectItem.css";
 
 const SelectItem = () => {
@@ -16,14 +17,9 @@ const SelectItem = () => {
   const [selectedShopItem, setSelectedShopItem] = useState(""); //chosen product
 
   useEffect(() => {
-    setShopTypes([
-      shopTypeTitle,
-      fruitsTitle,
-      vegetablesTitle,
-      milkProductsTitle,
-      "Drinks",
-    ]);
+    setShopTypes(insertShopTypes(shopTypes));
   }, []);
+
 
   const onChangeTypeHandler = (event) => {
     setSelectedShopType("");
@@ -33,39 +29,29 @@ const SelectItem = () => {
   };
 
   const fillItems = (selectedShopType) => {
-    switch (selectedShopType) {
-      case fruitsTitle: {
-        setShopItems([shopItemTitle, "Apple", "Pear", "Peach"]);
-        break;
-      }
-      case vegetablesTitle: {
-        setShopItems([shopItemTitle, "Tomato", "Potato", "Onion"]);
-        break;
-      }
-      case milkProductsTitle: {
-        setShopItems([shopItemTitle, "Yogurt", "Cheese", "Milk"]);
-        break;
-      }
-      default: {
-        setShopItems(["Unsuported type"]);
-      }
-    }
+    setShopItems(insertListOfItems(selectedShopType)
+    );
   };
 
+  
   const onChangeItemHandler = (event) => {
     setSelectedShopItem(event.target.value);
   };
-
-
 
   return (
     <div className="item">
       My Shop
       <div>
-              <MakeSelection items={shopTypes} onChangeHandler={onChangeTypeHandler}  />
+        <MakeSelection
+          items={shopTypes}
+          onChangeHandler={onChangeTypeHandler}
+        />
       </div>
       <div>
-              <MakeSelection items={shopItems} onChangeHandler ={onChangeItemHandler} />
+        <MakeSelection
+          items={shopItems}
+          onChangeHandler={onChangeItemHandler}
+        />
       </div>
       <div className="border-control">{`You have chosen ${selectedShopType}, ${selectedShopItem}`}</div>
     </div>
