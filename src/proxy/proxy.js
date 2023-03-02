@@ -2,9 +2,6 @@ export function insertShopTypes(insertedShopTypes) {
   return ["My Shop Types", "Type 1", "Type 2", "Type 3", "Type 4"];
 }
 
-
-
-
 export function insertListOfItems(myShopType) {
   let listOfProducts = [];
   switch (myShopType) {

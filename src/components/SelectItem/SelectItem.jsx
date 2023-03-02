@@ -7,10 +7,6 @@ const SelectItem = () => {
   const shopTypeTitle = "Shop Type";
   const shopItemTitle = "Shop Item";
 
-  const fruitsTitle = "Fruits";
-  const vegetablesTitle = "Vegetables";
-  const milkProductsTitle = "Milk Products";
-
   const [shopTypes, setShopTypes] = useState([shopTypeTitle]); //List of shop types
   const [selectedShopType, setSelectedShopType] = useState(""); //chosen type
   const [shopItems, setShopItems] = useState([shopItemTitle]); //list of products
@@ -20,7 +16,6 @@ const SelectItem = () => {
     setShopTypes(insertShopTypes(shopTypes));
   }, []);
 
-
   const onChangeTypeHandler = (event) => {
     setSelectedShopType("");
     setSelectedShopItem("");
@@ -29,11 +24,9 @@ const SelectItem = () => {
   };
 
   const fillItems = (selectedShopType) => {
-    setShopItems(insertListOfItems(selectedShopType)
-    );
+    setShopItems(insertListOfItems(selectedShopType));
   };
 
-  
   const onChangeItemHandler = (event) => {
     setSelectedShopItem(event.target.value);
   };
