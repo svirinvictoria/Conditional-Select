@@ -1,6 +1,8 @@
 const express = require("express");
-
+const cors = require("cors");
 const app = express();
+
+app.use(cors());
 
 app.get("/types", function (req, res) {
   // Как будто взяли из Базы данных
@@ -17,8 +19,8 @@ app.get("/items", function (req, res) {
   // Как будто взяли из Базы данных
   const items = insertListOfItems(type);
 
+  setTimeout(() => res.send(items), 5000);
   // Возвращаем результат
-  res.send(items);
 });
 
 // app.get("/items/:id", function (req, res) {

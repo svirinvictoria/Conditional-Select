@@ -13,7 +13,11 @@ const SelectItem = () => {
   const [selectedShopItem, setSelectedShopItem] = useState(""); //chosen product
 
   useEffect(() => {
-    setShopTypes(insertShopTypes(shopTypes));
+    async function fetchData() {
+      const response = await insertShopTypes(shopTypes);
+      setShopTypes(response);
+    }
+    fetchData();
   }, []);
 
   const onChangeTypeHandler = (event) => {
@@ -23,8 +27,9 @@ const SelectItem = () => {
     fillItems(event.target.value);
   };
 
-  const fillItems = (selectedShopType) => {
-    setShopItems(insertListOfItems(selectedShopType));
+  const fillItems = async (selectedShopType) => {
+    const items = await insertListOfItems(selectedShopType);
+    setShopItems(items);
   };
 
   const onChangeItemHandler = (event) => {
